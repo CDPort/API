@@ -218,8 +218,15 @@ public Response query(String QueryStatement) {
     	else if(DSprop.get(index).getValue().hasBooleanValue())
     		value.setBoolean(DSprop.get(index).getValue().getBooleanValue());
     	else //string
-    		value.setString(DSprop.get(index).getValue().getStringValue());
-    	
+    		{value.setString(DSprop.get(index).getValue().getStringValue());
+    		System.out.println("setting atr--------------");
+    	    }		
+    		
+    //-------check array-----
+    if(DSprop.get(index).getValue().getListValueList().size()>0)
+    {value.setArray(setArrayValue(DSprop.get(index).getValue().getListValueList()));
+    System.out.println("setting arry--------------");
+    }		
 		Properties prop=new Properties();
 		prop.setProperity(name, value);
 	propList.add(prop);
@@ -325,19 +332,7 @@ public Response query(String QueryStatement) {
 			    	entityBuilder.addProperty(Property.newBuilder()
 					          .setName(propertyList.get(index).getPropertyName())
 					          .setValue(Value.newBuilder().setBooleanValue(propertyList.get(index).getPropertyValue().getBoolean())));
-			  	/*else if(propertyList.get(index).getPropertyValue().hasArrayValue())
-			  	{PropertyValue [] ValueArray=propertyList.get(index).getPropertyValue().getArray();
-			  	List<Value> items = new ArrayList<Value>();
-			  	Value v;
 			  	
-			  	int i=0;
-			  	while(i<ValueArray.length)
-			  		{			  	System.out.println("LLLLLst"+ValueArray[i].getString());
-			  		entityBuilder.addProperty(Property.newBuilder()
-					      .setName(propertyList.get(index).getPropertyName())
-					       .setValue(Value.newBuilder().setStringValue(ValueArray[i].getString())));
-			  		i++;}
-			 	}*/
 			   	else if(propertyList.get(index).getPropertyValue().hasArrayValue()){
 			   		int x=0;
 		    		PropertyValue [] propertyValueArray=propertyList.get(index).getPropertyValue().getArray();
