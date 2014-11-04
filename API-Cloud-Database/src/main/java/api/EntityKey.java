@@ -1,5 +1,7 @@
 package main.java.api;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 
 /**
@@ -15,9 +17,11 @@ public class EntityKey {
 	private String strKey;
 	private long intKey;
 	private ObjectId objIdK;
+	private List<Long> listint;
     boolean stringType=false;
 	boolean intType=false;
 	boolean objectIdType=false;
+	boolean listofint=false;
 
 
 	public EntityKey(){
@@ -38,6 +42,10 @@ public class EntityKey {
 			objectIdType=true;
 			objIdK= objectIdKey;
 		}
+		public void  setListkey (List<Long> lint){
+			listofint=true;
+			listint= lint;
+		}
 	//---get--
 	public String getStringkey(){
 		return  strKey;
@@ -47,6 +55,9 @@ public class EntityKey {
 	}
 	public ObjectId getObjectIdkey(){
 		return  objIdK;
+	}
+	public List<Long>   getListkey ( ){
+		return listint;
 	}
 	//---- check type-----
 	public boolean hasStringkey(){
@@ -58,5 +69,7 @@ public class EntityKey {
 	public boolean hasObjectIdkey(){
 		return  objectIdType;
 	}
-	
+	public boolean haslistkey(){
+		return  listofint;
+	}
 }

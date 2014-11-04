@@ -55,13 +55,15 @@ public  interface Database
 	 * Get all Entities that belong to the specified <i> Entity type </i>.</p>
 	 * 
 	 * @param EntityType String
-	 * @param EntityKey each database supports different data types for the key.   
 	 * * 
 	 * @return Response
 	 * 
 	 */
 	
 	public Response getEntity(String EntityType) ;
+	public Response getEntity(String entityType,List<EntityKey> keys ) ;
+	public Response getEntity(String entityType, int from, int to) ;
+
 	/**
 	 * <p> Put.</p>
 	 * <p>
@@ -74,7 +76,8 @@ public  interface Database
 	 *
 	 */
 	public void put(String EntityType,EntityKey entityKey,List<Properties> propertyList,boolean ReplaceIfExist ) ;
-	
+	public void put(String entityType,List<Entities> entitiesList ) ;
+
 	/**
 	 * <p>
 	 * Delete Entity. </p>
@@ -85,6 +88,22 @@ public  interface Database
 	 * 
 	 */
 	public void deleteEntity(String entityType,EntityKey entityKey );
-	
-}
+	/**
+	 * <p>
+	 * Delete Entity type. </p>
+	 * Delete the entity type and all entities belong to tit.
+	 * 
+	 * @param EntityType String
+	 * 
+	 */
+	public void deleteEntityType(String entityType);
 
+	/**
+	 * <p>
+	 * List of Entity Types. </p>
+	 * 
+	 */
+	public List<String> listofEntityTypes();	
+
+}
+	

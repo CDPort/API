@@ -17,5 +17,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/macbookpro/mysql-connector-java-5.1.32/mysql-connector-java-5.1.32-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/macbookpro/Downloads/appengine-java-sdk-1.9.14/lib/impl/google_sql.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
